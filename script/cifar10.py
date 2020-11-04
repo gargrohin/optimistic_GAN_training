@@ -146,13 +146,14 @@ def generate_images(generator_model, output_dir, epoch):
     """Feeds random seeds into the generator and tiles and saves the output to a PNG file."""
     test_image_stack = generator_model.predict(np.random.rand(100, 100))
     test_image_stack = (test_image_stack * 127.5) + 127.5
+    test_image_stack_all = test_image_stack
     test_image_stack = np.squeeze(np.round(test_image_stack).astype(np.uint8))
     tiled_output = tile_images(test_image_stack)
     tiled_output = Image.fromarray(tiled_output)  # L specifies greyscale
     outfile = os.path.join(output_dir, 'epoch_{}.png'.format(epoch))
     tiled_output.save(outfile)
     outfile = os.path.join(output_dir, 'epoch_{}.pkl'.format(epoch))
-    test_image_stack_all = np.array([])
+    # test_image_stack_all = np.array([])
     if epoch > 0:
         c = 0
         while c < 50:

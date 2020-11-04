@@ -25,7 +25,7 @@ def get_score(improved_keras_dir, t_n_epoch):
             datafile = join(improved_keras_dir, 'epoch_{}.pkl'.format(i))
             if not exists(datafile):
                 break
-            with open(datafile) as f:
+            with open(datafile, 'rb') as f:
                 sample = cPickle.load(f)
                 t_score = inception_score.get_inception_score(list(sample), 1)[0]
             with open(scorefile, 'w') as f:

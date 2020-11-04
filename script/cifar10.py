@@ -152,6 +152,19 @@ def generate_images(generator_model, output_dir, epoch):
     outfile = os.path.join(output_dir, 'epoch_{}.png'.format(epoch))
     tiled_output.save(outfile)
     outfile = os.path.join(output_dir, 'epoch_{}.pkl'.format(epoch))
+    test_image_stack_all = np.array([])
+    if epoch > 90:
+        c = 0
+        while c < 50:
+            c+=1
+            test_image_stack = generator_model.predict(np.random.rand(100, 100))
+            test_image_stack = (test_image_stack * 127.5) + 127.5
+        if c ==1:
+            test_image_stack = test_image_stack
+        else:
+            test_image_stack_all = np.concatenate((test_image_stack_all, test_image_stack))
+        test_image_stack_all = np.squeeze(np.round(test_image_stack_all).astype(np.uint8))
+        test_image_stack = test_image_stack_all
     with open(outfile, 'wb') as f:
         cPickle.dump(test_image_stack, f)
 

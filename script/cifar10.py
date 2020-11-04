@@ -12,7 +12,7 @@ tested this with Theano at all.
 The model saves images using pillow. If you don't have pillow, either install it or remove the calls to generate_images.
 """
 import argparse
-import os, cPickle
+import os, _pickle as cPickle
 import numpy as np
 from keras.models import Model, Sequential
 from keras.layers import Input, Dense, Reshape, Flatten
@@ -152,7 +152,7 @@ def generate_images(generator_model, output_dir, epoch):
     outfile = os.path.join(output_dir, 'epoch_{}.png'.format(epoch))
     tiled_output.save(outfile)
     outfile = os.path.join(output_dir, 'epoch_{}.pkl'.format(epoch))
-    with open(outfile, 'w') as f:
+    with open(outfile, 'wb') as f:
         cPickle.dump(test_image_stack, f)
 
 

@@ -1,6 +1,6 @@
 from os.path import join,exists,realpath,dirname,basename
 from os import makedirs,listdir, system
-import numpy as np, cPickle, editdistance, seaborn as sns
+import numpy as np, _pickle as cPickle, editdistance, seaborn as sns
 import matplotlib.pyplot as plt, pandas as pd, itertools, glob, h5py
 from scipy.stats import entropy
 from matplotlib.font_manager import FontProperties

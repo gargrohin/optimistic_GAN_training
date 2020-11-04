@@ -153,7 +153,7 @@ def generate_images(generator_model, output_dir, epoch):
     tiled_output.save(outfile)
     outfile = os.path.join(output_dir, 'epoch_{}.pkl'.format(epoch))
     test_image_stack_all = np.array([])
-    if epoch > 90:
+    if epoch > 0:
         c = 0
         while c < 50:
             c+=1

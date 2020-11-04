@@ -7,7 +7,7 @@ from matplotlib.font_manager import FontProperties
 from IPython.display import display
 from collections import defaultdict
 from IPython.display import display
-from itertools import izip
+# from itertools import izip
 from scipy.stats import ranksums
 import multiprocessing as mp
 from PIL import Image

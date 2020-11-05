@@ -28,10 +28,10 @@ def get_score(improved_keras_dir, t_n_epoch):
             break
         with open(datafile, 'rb') as f:
             sample = cPickle.load(f)
-            t_score = inception_score.get_inception_score(list(sample), 1)[0]
             print(len(list(sample)))
+            t_score = inception_score.get_inception_score(list(sample), 1)[0]
         # with open(scorefile, 'w') as f:
-        #     f.write('%f\n' % t_score)
+        #     f.write('%f\n' % t_score)l
         # else:
         #     with open(scorefile) as f:
         #         t_score = float(f.readline())

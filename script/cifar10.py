@@ -166,6 +166,7 @@ def generate_images(generator_model, output_dir, epoch):
             test_image_stack_all = np.concatenate((test_image_stack_all, test_image_stack))
         test_image_stack_all = np.squeeze(np.round(test_image_stack_all).astype(np.uint8))
         test_image_stack = test_image_stack_all
+        print(len(test_image_stack))
     with open(outfile, 'wb') as f:
         cPickle.dump(test_image_stack, f)
 

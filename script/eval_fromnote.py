@@ -21,20 +21,20 @@ def get_score(improved_keras_dir, t_n_epoch):
     score = []
     for i in range(t_n_epoch-10, t_n_epoch):
         print(i)
-        scorefile = join(improved_keras_dir, 'epoch_{}.score'.format(i))
-        if not exists(scorefile):   
-            datafile = join(improved_keras_dir, 'epoch_{}.pkl'.format(i))
-            if not exists(datafile):
-                break
-            with open(datafile, 'rb') as f:
-                sample = cPickle.load(f)
-                t_score = inception_score.get_inception_score(list(sample), 1)[0]
-                print(len(list(sample)))
-            with open(scorefile, 'w') as f:
-                f.write('%f\n' % t_score)
-        else:
-            with open(scorefile) as f:
-                t_score = float(f.readline())
+        # scorefile = join(improved_keras_dir, 'epoch_{}.score'.format(i))
+        # if not exists(scorefile):   
+        datafile = join(improved_keras_dir, 'epoch_{}.pkl'.format(i))
+        if not exists(datafile):
+            break
+        with open(datafile, 'rb') as f:
+            sample = cPickle.load(f)
+            t_score = inception_score.get_inception_score(list(sample), 1)[0]
+            print(len(list(sample)))
+        with open(scorefile, 'w') as f:
+            f.write('%f\n' % t_score)
+        # else:
+        #     with open(scorefile) as f:
+        #         t_score = float(f.readline())
         score.append(t_score)
     
     return max(score)

@@ -20,6 +20,7 @@ e = 100
 def get_score(improved_keras_dir, t_n_epoch):
     score = []
     for i in range(t_n_epoch-10, t_n_epoch):
+        print(i)
         scorefile = join(improved_keras_dir, 'epoch_{}.score'.format(i))
         if not exists(scorefile):   
             datafile = join(improved_keras_dir, 'epoch_{}.pkl'.format(i))

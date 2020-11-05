@@ -37,6 +37,7 @@ def get_inception_score(images, splits=10):
   with tf.Session() as sess:
     preds, pools = [], []
     n_batches = int(math.ceil(float(len(inps)) / float(bs)))
+    print("n_batches :", n_batches)
     for i in trange(n_batches):
       inp = inps[(i * bs):min((i + 1) * bs, len(inps))]
       inp = np.concatenate(inp, 0)

@@ -155,6 +155,7 @@ def generate_images(generator_model, output_dir, epoch):
     outfile = os.path.join(output_dir, 'epoch_{}.pkl'.format(epoch))
     # test_image_stack_all = np.array([])
     if epoch > 90:
+        print("50k images?")
         c = 0
         while c < 50:
             c+=1
@@ -168,6 +169,7 @@ def generate_images(generator_model, output_dir, epoch):
         test_image_stack = test_image_stack_all
         print(len(test_image_stack))
     with open(outfile, 'wb') as f:
+        print(test_image_stack.shape)
         cPickle.dump(test_image_stack, f)
 
 

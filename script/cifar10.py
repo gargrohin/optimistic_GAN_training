@@ -161,10 +161,10 @@ def generate_images(generator_model, output_dir, epoch):
             c+=1
             test_image_stack = generator_model.predict(np.random.rand(100, 100))
             test_image_stack = (test_image_stack * 127.5) + 127.5
-        if c ==1:
-            test_image_stack = test_image_stack
-        else:
-            test_image_stack_all = np.concatenate((test_image_stack_all, test_image_stack))
+            if c ==1:
+                test_image_stack = test_image_stack
+            else:
+                test_image_stack_all = np.concatenate((test_image_stack_all, test_image_stack))
         test_image_stack_all = np.squeeze(np.round(test_image_stack_all).astype(np.uint8))
         test_image_stack = test_image_stack_all
         print(len(test_image_stack))

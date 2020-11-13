@@ -157,7 +157,7 @@ def generate_images(generator_model, output_dir, epoch):
     if epoch > 90:
         print("50k images?")
         c = 0
-        while c < 50:
+        while c < 500:
             c+=1
             test_image_stack = generator_model.predict(np.random.rand(100, 100))
             test_image_stack = (test_image_stack * 127.5) + 127.5

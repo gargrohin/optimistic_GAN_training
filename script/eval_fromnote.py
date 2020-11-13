@@ -39,7 +39,7 @@ def get_score(improved_keras_dir, t_n_epoch):
     
     return max(score)
 
-expt2plot = ['adam_ratio1', 'optimAdam', 'optimAdam_ratio1']
+expt2plot = ['optimAdam_ratio1']
 
 for expt in expt2plot:
     score = get_score(join(rundir, expt), e)
